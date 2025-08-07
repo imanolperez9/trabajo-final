@@ -3,7 +3,21 @@ import  { Layout } from "../Components/Layout"
 const Login = () =>  {
     return(
         <Layout >
-            <h1>logueate</h1>
+            <h1>inicia sesion</h1>
+            <section>
+                <form >
+                    <div>
+                        <label>correo electronico</label>
+                        <input type="email" />
+                    </div>
+
+                    <div>
+                        <label>contraseña</label>
+                        <input type="password" />
+                    </div>
+                    <button>ingresar</button>
+                </form>
+            </section>
 
         </Layout>
     )

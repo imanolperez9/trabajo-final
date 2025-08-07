@@ -10,11 +10,11 @@ const RouterApp = () => {
     return (
         <BrowserRouter>
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="/inicio"   element={<Home />} />
+            <Route path="/login"    element={<Login />} />
+            <Route path="/Dashboard"element={<Dashboard />} />
+            <Route path="/Register" element={<Register />} />
+            <Route path="*"         element={ <NotFound />}/>
 
         </Routes>
         </BrowserRouter>

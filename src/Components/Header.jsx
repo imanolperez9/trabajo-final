@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const Header =() => {
     return(
         <header style={ {backgroundColor:"lightblue"}}>
@@ -5,10 +7,10 @@ const Header =() => {
         <nav>
             <ul>
         
-      -  <li><a href="/Inicio">Inicio</a></li>
-        <li><a href="/Dashboars">Dashboard</a></li>
-        <li><a href="/Login">Login</a></li>
-        <li><a href="/Registro">Registrate</a></li>
+      - <li><Link to="/Inicio">Inicio</Link></li>
+        <li><Link to="/Login">Login</Link></li>
+         <li><Link to="/Dashboard">Dashboard</Link></li>
+        <li><Link to="/Register">Registrate</Link></li>
         <button>cerrar sesion</button>
         
            </ul>
