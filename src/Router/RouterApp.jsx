@@ -10,8 +10,8 @@ const RouterApp = () => {
     return (
         <BrowserRouter>
         <Routes>
-            <Route path="/inicio"   element={<Home />} />
-            <Route path="/login"    element={<Login />} />
+            <Route path="/Inicio"   element={<Home />} />
+            <Route path="/Login"    element={<Login />} />
             <Route path="/Dashboard"element={<Dashboard />} />
             <Route path="/Register" element={<Register />} />
             <Route path="*"         element={ <NotFound />}/>
