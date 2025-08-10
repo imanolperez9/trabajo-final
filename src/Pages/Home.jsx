@@ -5,6 +5,8 @@ import  { Layout } from "../Components/Layout"
 const Home = () =>  {
   const [products , setProducts] = useState([])
 
+  const [user , setUser] = useState(true)
+
 const fetchingProducts = async () =>  {
   const response = await  fetch("https://fakestoreapi.com/products" ,  {method : "GET"})
 const data = await response.json()
@@ -35,8 +37,14 @@ useEffect(() => {
           products.map((product) =>  <div>
             <h2 key={product.id}>{product.title }</h2>
             <img src= {product.image} alt={`Imagen ${product.title}` }/>
-            <h3><strong>{product.description }</strong></h3>
+            <h3>{product.description }</h3>
             <p>${product.price }</p>
+         {  
+             false && <div>
+                <button>actualizar</button>
+                <button>borrar</button>
+              </div>
+              }
           </div>   ) 
         }
       </section>
