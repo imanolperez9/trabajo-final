@@ -13,13 +13,13 @@ const Header = () => {
                     {
                         user && <>
 
-                            <li><Link to="/Inicio">Inicio</Link></li>
+                            <li><Link to="/">Inicio</Link></li>
                             <li><Link to="/Dashboard">Dashboard</Link></li>
                             <button>cerrar sesion</button>
                         </>
 
                     }
-                    -
+            
                     {
                         !user && <>
                             <li><Link to="/Login">Login</Link></li>
