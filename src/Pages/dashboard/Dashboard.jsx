@@ -36,7 +36,7 @@ const Dashboard = () => {
         const response = await fetch("https://fakestoreapi.com/products", {
             method: "POST",
             headers: {
-                "content-type": "application/json"
+                "content-Type": "application/json"
             },
             body: JSON.stringify(newProducts)
 
@@ -59,17 +59,27 @@ const Dashboard = () => {
                 <form onSubmit={handleSubmit} >
                     <div>
                         <label> nombre del producto</label>
-                        <input type="text" name="name" onChange={(e) => setName(e.target.value)} value={name} />
+                        <input type="text"
+                         name="name" onChange={(e) =>
+                          setName(e.target.value)} 
+                          value={name} />
                     </div>
 
                     <div>
                         <label>precio</label>
-                        <input type="number" name="price" onChange={(e) => setPrice(e.target.value)} value={price} />
+                        <input type="number"
+                         name="price" onChange={(e) => 
+                         setPrice(e.target.value)}
+                          value={price} />
                     </div>
 
                     <div>
                         <label>descripcion</label>
-                        <textarea name="description" rows="4" onChange={(e) => setDescription(e.target.value)} value={description} />
+                        <textarea name="description" 
+                        rows="4" 
+                        onChange={(e) => 
+                        setDescription(e.target.value)} 
+                        value={description} />
                     </div>
                     {
                         error && <p>{error}</p>

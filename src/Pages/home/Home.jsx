@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import "./home.css"
 import { Layout } from "../../Components/Layout"
+import { data } from "react-router-dom"
 
 const Home = () => {
   const [products, setProducts] = useState([])
@@ -8,11 +9,11 @@ const Home = () => {
   const [user, setUser] = useState(true)
   const [editProduct, setEditProduct] = useState(null)
   const [showpopup, setShowPopup] = useState(null)
-  const [titleEdit , setTitleEdit] = useState("")
-  const [priceEdit , setPriceEdit] = useState("")
-  const [descriptionEdit , setDescriptionEdit] = useState("")
-  const [categoryEdit , setCategoryEdit] = useState("")
-  const [imageEdit , setImageEdit] = useState("")
+  const [titleEdit, setTitleEdit] = useState("")
+  const [priceEdit, setPriceEdit] = useState("")
+  const [descriptionEdit, setDescriptionEdit] = useState("")
+  const [categoryEdit, setCategoryEdit] = useState("")
+  const [imageEdit, setImageEdit] = useState("")
 
   const fetchingProducts = async () => {
     const response = await fetch("https://fakestoreapi.com/products", { method: "GET" })
@@ -35,14 +36,55 @@ const Home = () => {
   }
 
   const handleOpenEdit = (product) => {
-    setEditProduct(product)
     setShowPopup(true)
+    setEditProduct(product)
+
     setTitleEdit(product.title)
+    setPriceEdit(product.price)
+    setDescriptionEdit(product.description)
+    setCategoryEdit(product.category)
+    setImageEdit(product.image)
   }
 
-  const handleUpdate = async () => { }
+  const handleUpdate = async (e) => {
+    e.preventDefault()
+
+    const updateProduct = {
+      id: editProduct.id,
+      title: titleEdit,
+      price: Number(priceEdit),
+      description: descriptionEdit,
+      category:categoryEdit,
+      image: imageEdit,
+    }
 
 
+    try {
+      const response = await fetch(`https://fakestoreapi.com/products/${editProduct.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(updateProduct)
+      })
+
+      if (response.ok) {
+        const data = await response.json()
+        setProducts(prevProducts =>
+          prevProducts.map((product) =>
+            product.id === editProduct.id
+              ? data
+              : product
+          ))
+      }
+
+    } catch (error)   {
+      console.log(error)
+    }
+
+
+
+  }
   return (
     <Layout >
       <div>
@@ -59,20 +101,43 @@ const Home = () => {
           showpopup && <section className="edit-product">
             <h2>editando el producto..</h2>
             <button onClick={() => setShowPopup(null)}>cerrar edicion</button>
-            <form>
+            <form onSubmit={handleUpdate}>
+
               <label> nombre de producto</label>
-              <input className="name-product" type="text" placeholder="cambia el titulo"value={titleEdit} />
+              <textarea className="name-product"
+                type="text"
+                placeholder="cambia el titulo"
+                value={titleEdit} onChange={(e) =>
+                  setTitleEdit(e.target.value)} >
+                    </textarea>
+
               <label>precio</label>
-              <input type="number" placeholder="cambia el precio" value={priceEdit} />
+              <input type="number"
+                placeholder="cambia el precio"
+                value={priceEdit} onChange={(e) =>
+                  setPriceEdit(e.target.value)} />
+
               <label >descripcion</label>
-              <textarea placeholder="cambia la descripcion" value={descriptionEdit}></textarea>
+              <textarea
+                placeholder="cambia la descripcion"
+                value={descriptionEdit} onChange={(e) =>
+                  setDescriptionEdit(e.target.value)} >
+              </textarea>
+
               <label>categoria</label>
-              <input type="text" placeholder="ingrese la categoria" value={categoryEdit} />
+              <input type="text"
+                placeholder="ingrese la categoria"
+                value={categoryEdit} onChange={(e) =>
+                  setCategoryEdit(e.target.value)} />
+
               <label>url de la imagen</label>
-              <input type="url" placeholder="ingrese url de la imagen" value={imageEdit} />
+              <input type="url"
+                placeholder="ingrese url de la imagen"
+                value={imageEdit} onChange={(e) =>
+                  setImageEdit(e.target.value)} />
               <button>actualizar</button>
-              
-              
+
+
             </form>
           </section>
         }
