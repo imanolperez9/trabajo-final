@@ -1,5 +1,6 @@
 import { useState } from "react"
-import  { Layout } from "../Components/Layout"
+import "./register.css"
+import  { Layout } from "../../Components/Layout"
 
 const Register = () =>  {
     const [username, setUsername] = useState("")
@@ -29,6 +30,8 @@ const handleSubmit = (e) =>    {
           username,
           email,
           password,
+
+          
 
           }
             

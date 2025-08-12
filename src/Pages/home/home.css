@@ -1,0 +1,12 @@
+.productos                  {
+    background-color: blue;
+}
+.edit-product   {
+    background-color: darkgoldenrod;
+    width: 100px;
+    padding: 200px;
+}
+.name-product   {
+    padding: 50px;
+
+}

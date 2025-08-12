@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react"
-
-import { Layout } from "../Components/Layout"
+import "./home.css"
+import { Layout } from "../../Components/Layout"
 
 const Home = () => {
   const [products, setProducts] = useState([])
 
   const [user, setUser] = useState(true)
+  const [editProduct, setEditProduct] = useState(null)
+  const [showpopup, setShowPopup] = useState(null)
+  const [titleEdit , setTitleEdit] = useState("")
+  const [priceEdit , setPriceEdit] = useState("")
+  const [descriptionEdit , setDescriptionEdit] = useState("")
+  const [categoryEdit , setCategoryEdit] = useState("")
+  const [imageEdit , setImageEdit] = useState("")
 
   const fetchingProducts = async () => {
     const response = await fetch("https://fakestoreapi.com/products", { method: "GET" })
@@ -22,12 +29,18 @@ const Home = () => {
   const handleDelete = async (id) => {
     const response = await fetch(`https://fakestoreapi.com/products/${id}`, { method: "DELETE" })
 
-     if (response.ok)  {
-setProducts(prevProducts => prevProducts.filter((product) => product.id != id))
-     }
+    if (response.ok) {
+      setProducts(prevProducts => prevProducts.filter((product) => product.id != id))
+    }
   }
 
+  const handleOpenEdit = (product) => {
+    setEditProduct(product)
+    setShowPopup(true)
+    setTitleEdit(product.title)
+  }
 
+  const handleUpdate = async () => { }
 
 
   return (
@@ -42,7 +55,28 @@ setProducts(prevProducts => prevProducts.filter((product) => product.id != id))
           <h1>Joyas Exclusivas</h1>
           <p>Descubrí nuestras joyas seleccionadas para realzar tu estilo. Piezas únicas, pensadas para cada ocasión: desde lo cotidiano hasta lo más sofisticado.</p>
         </section>
-        <section>
+        {
+          showpopup && <section className="edit-product">
+            <h2>editando el producto..</h2>
+            <button onClick={() => setShowPopup(null)}>cerrar edicion</button>
+            <form>
+              <label> nombre de producto</label>
+              <input className="name-product" type="text" placeholder="cambia el titulo"value={titleEdit} />
+              <label>precio</label>
+              <input type="number" placeholder="cambia el precio" value={priceEdit} />
+              <label >descripcion</label>
+              <textarea placeholder="cambia la descripcion" value={descriptionEdit}></textarea>
+              <label>categoria</label>
+              <input type="text" placeholder="ingrese la categoria" value={categoryEdit} />
+              <label>url de la imagen</label>
+              <input type="url" placeholder="ingrese url de la imagen" value={imageEdit} />
+              <button>actualizar</button>
+              
+              
+            </form>
+          </section>
+        }
+        <div className=" productos">
           {
             products.map((product) => <div key={product.id}>
               <h2 key={product.id}>{product.title}</h2>
@@ -51,13 +85,14 @@ setProducts(prevProducts => prevProducts.filter((product) => product.id != id))
               <p>${product.price}</p>
               {
                 user && <div>
-                  <button>actualizar</button>
+                  <button onClick={() => handleOpenEdit(product)}>actualizar</button>
                   <button onClick={() => handleDelete(product.id)}>borrar</button>
                 </div>
               }
             </div>)
           }
-        </section>
+        </div>
+
         <section>
           <h2>ELEGINOS..</h2>
 
