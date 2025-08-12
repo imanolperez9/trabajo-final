@@ -1,20 +1,49 @@
-import  { Layout } from "../../Components/Layout"
+import  { useState } from "react"
+import { Layout } from "../../Components/Layout"
+import { useAuth } from "../../Context/UserContext"
 import "./login.css"
+import  { useNavigate } from"react-router-dom"
 
-const Login = () =>  {
-    return(
+const Login = () => {
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const { login } = useAuth()
+
+    const navigate = useNavigate()
+
+    const handleLogin = async (e) => {
+        e.preventDefault()
+        console.log({username , password})
+
+        const loginOn = await login(username , password)
+       
+        if (loginOn)    {
+        setUsername("")
+        setPassword("")
+        navigate("/")
+        }
+    }
+
+
+    return (
         <Layout >
             <h1>inicia sesion</h1>
             <section>
-                <form >
+                <form onSubmit={handleLogin}>
                     <div>
-                        <label>correo electronico</label>
-                        <input type="email" />
+                        <label>nombre de usuario</label>
+                        <input type="text"
+                            onChange={ (e) =>
+                            setUsername(e.target.value) } 
+                            value={username} />
                     </div>
 
                     <div>
                         <label>contraseña</label>
-                        <input type="password" />
+                        <input type="password" 
+                         onChange={ (e) =>
+                         setPassword(e.target.value)}
+                         value={password}/>
                     </div>
                     <button>ingresar</button>
                 </form>
@@ -23,4 +52,4 @@ const Login = () =>  {
         </Layout>
     )
 }
- export     { Login }
+export { Login }

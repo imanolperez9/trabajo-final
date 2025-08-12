@@ -1,10 +1,14 @@
 import "./Header.css"
-import { useState } from "react"
+import { useAuth } from "../../Context/UserContext"
 import { Link } from "react-router-dom"
 
 const Header = () => {
 
-    const [user, setUser] = useState(true)
+    const   { user , logout } = useAuth()
+
+    const handleLogout = () => {    
+        logout()
+    }
 
     return (
         <header style={{ backgroundColor: "lightblue" }}>
@@ -16,7 +20,7 @@ const Header = () => {
 
                             <li><Link to="/">Inicio</Link></li>
                             <li><Link to="/Dashboard">Dashboard</Link></li>
-                            <button>cerrar sesion</button>
+                            <button onClick={handleLogout}>cerrar sesion</button>
                         </>
 
                     }

@@ -1,19 +1,30 @@
 import { useEffect, useState } from "react"
 import "./home.css"
 import { Layout } from "../../Components/Layout"
-import { data } from "react-router-dom"
+import { useAuth } from "../../Context/UserContext"
 
 const Home = () => {
   const [products, setProducts] = useState([])
 
-  const [user, setUser] = useState(true)
+
   const [editProduct, setEditProduct] = useState(null)
+
   const [showpopup, setShowPopup] = useState(null)
+
   const [titleEdit, setTitleEdit] = useState("")
+
   const [priceEdit, setPriceEdit] = useState("")
+
   const [descriptionEdit, setDescriptionEdit] = useState("")
+
   const [categoryEdit, setCategoryEdit] = useState("")
+
   const [imageEdit, setImageEdit] = useState("")
+
+
+
+  const { user } = useAuth()
+
 
   const fetchingProducts = async () => {
     const response = await fetch("https://fakestoreapi.com/products", { method: "GET" })
@@ -23,9 +34,12 @@ const Home = () => {
 
   }
 
+
   useEffect(() => {
     fetchingProducts()
   }, [])
+
+
 
   const handleDelete = async (id) => {
     const response = await fetch(`https://fakestoreapi.com/products/${id}`, { method: "DELETE" })
@@ -34,6 +48,7 @@ const Home = () => {
       setProducts(prevProducts => prevProducts.filter((product) => product.id != id))
     }
   }
+
 
   const handleOpenEdit = (product) => {
     setShowPopup(true)
@@ -46,6 +61,8 @@ const Home = () => {
     setImageEdit(product.image)
   }
 
+
+
   const handleUpdate = async (e) => {
     e.preventDefault()
 
@@ -54,9 +71,10 @@ const Home = () => {
       title: titleEdit,
       price: Number(priceEdit),
       description: descriptionEdit,
-      category:categoryEdit,
+      category: categoryEdit,
       image: imageEdit,
     }
+
 
 
     try {
@@ -78,7 +96,7 @@ const Home = () => {
           ))
       }
 
-    } catch (error)   {
+    } catch (error) {
       console.log(error)
     }
 
@@ -97,6 +115,8 @@ const Home = () => {
           <h1>Joyas Exclusivas</h1>
           <p>Descubrí nuestras joyas seleccionadas para realzar tu estilo. Piezas únicas, pensadas para cada ocasión: desde lo cotidiano hasta lo más sofisticado.</p>
         </section>
+
+
         {
           showpopup && <section className="edit-product">
             <h2>editando el producto..</h2>
@@ -109,7 +129,7 @@ const Home = () => {
                 placeholder="cambia el titulo"
                 value={titleEdit} onChange={(e) =>
                   setTitleEdit(e.target.value)} >
-                    </textarea>
+              </textarea>
 
               <label>precio</label>
               <input type="number"
@@ -141,6 +161,8 @@ const Home = () => {
             </form>
           </section>
         }
+
+
         <div className=" productos">
           {
             products.map((product) => <div key={product.id}>
@@ -173,6 +195,7 @@ const Home = () => {
 
           </ul>
         </section>
+
 
         <section>
           <h2>Comprá con Confianza</h2>

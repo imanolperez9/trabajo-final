@@ -33,6 +33,8 @@ const Dashboard = () => {
             category: "",
             image: ""
         }
+       
+       
         const response = await fetch("https://fakestoreapi.com/products", {
             method: "POST",
             headers: {
@@ -41,6 +43,8 @@ const Dashboard = () => {
             body: JSON.stringify(newProducts)
 
         })
+       
+       
         const data = await response.json()
 
         setProducts(data)
