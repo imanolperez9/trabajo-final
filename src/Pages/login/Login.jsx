@@ -28,11 +28,11 @@ const Login = () => {
     return (
         <Layout >
             <h1>inicia sesion</h1>
-            <section>
-                <form onSubmit={handleLogin}>
+            <section className="sec-login">
+                <form className="form-login" onSubmit={handleLogin}>
                     <div>
                         <label>nombre de usuario</label>
-                        <input type="text"
+                        <input className="imputs" type="text"
                             onChange={ (e) =>
                             setUsername(e.target.value) } 
                             value={username} />
@@ -40,12 +40,12 @@ const Login = () => {
 
                     <div>
                         <label>contraseña</label>
-                        <input type="password" 
+                        <input className="imputs" type="password" 
                          onChange={ (e) =>
                          setPassword(e.target.value)}
                          value={password}/>
                     </div>
-                    <button>ingresar</button>
+                    <button className="in-btn">ingresar</button>
                 </form>
             </section>
 

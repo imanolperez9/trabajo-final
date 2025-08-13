@@ -108,16 +108,16 @@ const Home = () => {
   return (
     <Layout >
       <div>
-        
+
         <section className=" presentacion">
           <div className="item">
-          <h1>Ropa para Adultos</h1>
-          <p>Explorá nuestra colección de ropa diseñada para ofrecer comodidad, estilo y elegancia. Disponemos de variedad de talles, colores y estilos para todas las temporadas.</p>
-</div>
-<div className="item">
-          <h1>Joyas Exclusivas</h1>
-          <p>Descubrí nuestras joyas seleccionadas para realzar tu estilo. Piezas únicas, pensadas para cada ocasión: desde lo cotidiano hasta lo más sofisticado.</p>
-        </div>
+            <h1>Ropa para Adultos</h1>
+            <p>Explorá nuestra colección de ropa diseñada para ofrecer comodidad, estilo y elegancia. Disponemos de variedad de talles, colores y estilos para todas las temporadas.</p>
+          </div>
+          <div className="item">
+            <h1>Joyas Exclusivas</h1>
+            <p>Descubrí nuestras joyas seleccionadas para realzar tu estilo. Piezas únicas, pensadas para cada ocasión: desde lo cotidiano hasta lo más sofisticado.</p>
+          </div>
         </section>
 
 
@@ -169,21 +169,120 @@ const Home = () => {
 
         <div className=" productos">
           {
-            products.map((product) => <div key={product.id} className="prod-item">
-              <h2 key={product.id}
-               className="title-prod">{product.title}</h2>
-              <img className="img-prod" src={product.image} alt={`Imagen ${product.title}`} />
-              <h3 className="desc-prod">{product.description}</h3>
-              <p className="price-prod">${product.price}</p>
-              {
-                user && <div>
-                  <button className="act-prod" onClick={() => handleOpenEdit(product)}>actualizar</button>
-                  <button className="del-prod" onClick={() => handleDelete(product.id)}>borrar</button>
-                </div>
+            products.map((product) => {
+              // Cambiamos título y descripción solo para algunos productos
+              let newTitle = product.title;
+              let newDescription = product.description;
+
+              if (product.id === 1) {
+                newTitle = "mochila para laptop (AZUL)";
+                newDescription = "ideal para llevarla a tu lugar de trabajo .";
               }
-            </div>
-            )
+
+              if (product.id === 2) {
+                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newDescription = "buena calidad y comodidad.";
+              }
+               if (product.id === 3) {
+                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newDescription = "buena calidad y comodidad.";
+              }
+               if (product.id === 4) {
+                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newDescription = "buena calidad y comodidad.";
+              }
+               if (product.id === 5) {
+                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newDescription = "buena calidad y comodidad.";
+              }
+               if (product.id === 6) {
+                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newDescription = "buena calidad y comodidad.";
+              }
+               if (product.id === 7) {
+                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newDescription = "buena calidad y comodidad.";
+              }
+               if (product.id === 8) {
+                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newDescription = "buena calidad y comodidad.";
+              }
+               if (product.id === 9) {
+                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newDescription = "buena calidad y comodidad.";
+              }
+               if (product.id === 10) {
+                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newDescription = "buena calidad y comodidad.";
+              }
+               if (product.id === 11) {
+                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newDescription = "buena calidad y comodidad.";
+              }
+               if (product.id === 12) {
+                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newDescription = "buena calidad y comodidad.";
+              }
+               if (product.id === 13) {
+                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newDescription = "buena calidad y comodidad.";
+              }
+               if (product.id === 14) {
+                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newDescription = "buena calidad y comodidad.";
+              }
+               if (product.id === 15) {
+                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newDescription = "buena calidad y comodidad.";
+              }
+               if (product.id === 16) {
+                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newDescription = "buena calidad y comodidad.";
+              }
+               if (product.id === 17) {
+                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newDescription = "buena calidad y comodidad.";
+              }
+               if (product.id === 18) {
+                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newDescription = "buena calidad y comodidad.";
+              }
+               if (product.id === 19) {
+                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newDescription = "buena calidad y comodidad.";
+              }
+               if (product.id === 20) {
+                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newDescription = "buena calidad y comodidad.";
+              }
+
+              return (
+                <div key={product.id} className="prod-item">
+                  <h2 className="title-prod">{newTitle}</h2>
+                  <img
+                    className="img-prod"
+                    src={product.image}
+                    alt={`Imagen ${newTitle}`}
+                  />
+                  <h3 className="desc-prod">{newDescription}</h3>
+                  <p className="price-prod">${product.price}</p>
+
+ {
+              user && <div>
+                <button className="act-prod" onClick={() => handleOpenEdit(product)}>actualizar</button>
+                <button className="del-prod" onClick={() => handleDelete(product.id)}>borrar</button>
+              </div>
+            }
+                </div>
+              );
+            })
           }
+         
+          <div>
+           
+          </div>
+         
+
         </div>
 
         <section className=" eleginos">
