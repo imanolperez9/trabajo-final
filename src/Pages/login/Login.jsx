@@ -13,7 +13,7 @@ const Login = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault()
-        console.log({username , password})
+        console.log({ username , password })
 
         const loginOn = await login(username , password)
        

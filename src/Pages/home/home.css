@@ -1,12 +1,84 @@
-.productos                  {
-    background-color: blue;
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f9f9f9;
 }
-.edit-product   {
-    background-color: darkgoldenrod;
-    width: 100px;
-    padding: 200px;
-}
-.name-product   {
-    padding: 50px;
 
+
+
+
+
+
+.title-prod {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.img-prod {
+    grid-template-columns: repeat(4px);
+    width: 140px;
+    height: 150px;
+
+    margin-bottom: 15px;
+    border: 8px solid #007bff;
+    border-radius: 8px;
+    padding: 45px;
+    background-color: rgb(116, 110, 110);
+    object-fit: initial;
+}
+
+
+.desc-prod {
+
+    color: #111010;
+    height: 200px;
+    margin-bottom: 200px;
+    text-align: center;
+}
+
+.price-prod {
+    font-weight: bold;
+
+    color: #007bff;
+    margin-bottom: 90px;
+}
+
+.act-prod {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-style: normal;
+
+}
+
+.del-prod {
+    background-color: #dc3545;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-style: normal;
+}
+
+
+
+.act-prod:hover {
+    background-color: #0056b3;
+}
+
+.del-prod:hover {
+    background-color: #a71d2a;
 }
