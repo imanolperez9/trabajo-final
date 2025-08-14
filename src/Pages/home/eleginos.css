@@ -1,0 +1,28 @@
+.eleginos-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.eleginos-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.eleginos-list li .icon {
+  font-size: 30px;
+  color: #ff6f61;
+ 
+  transition: transform 0.3s, color 0.3s;
+}
+
+.eleginos-list li:hover .icon {
+  transform: scale(1.2);
+  color: #ff3b2e;
+}
+

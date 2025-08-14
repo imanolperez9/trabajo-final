@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import "./home.css"
 import { Layout } from "../../Components/Layout"
 import { useAuth } from "../../Context/UserContext"
+import "./eleginos.css"
 
 const Home = () => {
   const [products, setProducts] = useState([])
@@ -170,7 +171,7 @@ const Home = () => {
         <div className=" productos">
           {
             products.map((product) => {
-              // Cambiamos título y descripción solo para algunos productos
+              // Cambio título y descripción solo para todos los productos
               let newTitle = product.title;
               let newDescription = product.description;
 
@@ -184,28 +185,28 @@ const Home = () => {
                 newDescription = "buena calidad y comodidad.";
               }
                if (product.id === 3) {
-                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newTitle = "chaqueta de trabajo (BEIGE)"
                 newDescription = "buena calidad y comodidad.";
               }
                if (product.id === 4) {
-                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newTitle = "remera manga larga inisex (AZUL)";
                 newDescription = "buena calidad y comodidad.";
               }
                if (product.id === 5) {
-                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
-                newDescription = "buena calidad y comodidad.";
+                newTitle = "anillo dragon plata";
+                newDescription = "buena calidad";
               }
                if (product.id === 6) {
-                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
-                newDescription = "buena calidad y comodidad.";
+                newTitle = "anillo arabe plata";
+                newDescription = "buena calidad ";
               }
                if (product.id === 7) {
-                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
-                newDescription = "buena calidad y comodidad.";
+                newTitle = "anillo diamante cuadrado plata ";
+                newDescription = "buena calidad ";
               }
                if (product.id === 8) {
-                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
-                newDescription = "buena calidad y comodidad.";
+                newTitle = "arito de plata color bronce";
+                newDescription = "buena calidad ";
               }
                if (product.id === 9) {
                 newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
@@ -232,27 +233,27 @@ const Home = () => {
                 newDescription = "buena calidad y comodidad.";
               }
                if (product.id === 15) {
-                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newTitle = "campera de abrigo (VIOLETA)";
                 newDescription = "buena calidad y comodidad.";
               }
                if (product.id === 16) {
-                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newTitle = "chaqueta de abrigo (NEGRA)";
                 newDescription = "buena calidad y comodidad.";
               }
                if (product.id === 17) {
-                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newTitle = "chaqueta de jean abierta";
                 newDescription = "buena calidad y comodidad.";
               }
                if (product.id === 18) {
-                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newTitle = "remera entre casa (BLANCA)";
                 newDescription = "buena calidad y comodidad.";
               }
                if (product.id === 19) {
-                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newTitle = "remera entre casa (ROJA)";
                 newDescription = "buena calidad y comodidad.";
               }
                if (product.id === 20) {
-                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
+                newTitle = "remera entre casa (VIOLETA)";
                 newDescription = "buena calidad y comodidad.";
               }
 
@@ -288,24 +289,47 @@ const Home = () => {
         <section className=" eleginos">
           <h2>ELEGINOS..</h2>
 
-          <ul>
-            <li>
-              <h2>Promociones y Beneficios</h2>
-              <p>Aprovechá nuestras promociones especiales, descuentos por temporada y beneficios exclusivos para clientes frecuentes.</p>
-            </li>
+         
 
-            <li>
-              <h2>Envíos a todo el país y opciones de pago flexibles.</h2>
-            </li>
+  <ul className="eleginos-list">
+    <li>
+      <div className="icon">🎁</div>
+      <div>
+        <h3>Promociones y Beneficios</h3>
+        <p>Aprovechá nuestras promociones especiales, descuentos por temporada y beneficios exclusivos para clientes frecuentes.</p>
+      </div>
+    </li>
 
-          </ul>
-        </section>
+    <li>
+      <div className="icon">🚚</div>
+      <div>
+        <h3>Envíos a todo el país y opciones de pago flexibles</h3>
+        <p>Realizá tus compras con comodidad y recibí tus productos en la puerta de tu hogar, pagando como prefieras.</p>
+      </div>
+    </li>
 
+    
+    
 
-        <section >
-          <h2>Comprá con Confianza</h2>
-          <p>En tienda Lincoln nos enfocamos en brindarte una experiencia de compra segura, cómoda y confiable.</p>
+    <li>
+      <div className="icon">✔️</div>
+      <div>
+        <h3>Productos de calidad garantizada</h3>
+        <p>Seleccionamos cuidadosamente cada producto para asegurar la mejor calidad y durabilidad para vos.</p>
+      </div>
+    </li>
+  </ul>
+</section>
 
+<section className="confianza">
+  <h2>Comprá con Confianza</h2>
+  <p>En Tienda Lincoln nos enfocamos en brindarte una experiencia de compra segura, cómoda y confiable.</p>
+  <ul className="confianza-list">
+    <li>💳 Pagos 100% seguros</li>
+    <li>🔄 Política de devoluciones sencilla</li>
+    <li>📦 Seguimiento de tus pedidos en tiempo real</li>
+    <li>📞 Atención al cliente rápida y eficiente</li>
+  </ul>
         </section>
 
       </div>

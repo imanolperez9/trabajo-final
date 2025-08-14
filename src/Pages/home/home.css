@@ -4,6 +4,8 @@
   gap: 20px; /* espacio entre las imágenes */
     background-color: #ffffff;
     border: 2px solid black;
+      transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
 .prod-item   {
  border: 2px solid black;
