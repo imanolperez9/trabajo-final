@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import "./home.css"
 import { Layout } from "../../Components/Layout"
 import { useAuth } from "../../Context/UserContext"
+
+
 import "./eleginos.css"
 
 const Home = () => {
@@ -22,6 +24,8 @@ const Home = () => {
 
   const [imageEdit, setImageEdit] = useState("")
 
+  const [ search , setSearch ] = useState("")
+
 
 
   const { user } = useAuth()
@@ -35,11 +39,50 @@ const Home = () => {
 
   }
 
+  // otra forma de cambiar el nombre a los productos
+ const remplaces = {
+    1: { title: "mochila para laptop (AZUL)", description: "ideal para llevarla a tu lugar de trabajo ." } ,
+    2: { title: "remera chomba con botones (BLANCA Y NEGRA)", description: "buena calidad y comodidad." } ,
+    3: { title: "chaqueta de trabajo (BEIGE)", description: "buena calidad y comodidad." } ,
+    4: { title: "remera manga larga inisex (AZUL)", description: "buena calidad y comodidad." },
+    5: { title: "anillo dragon plata", description: "buena calidad" } ,
+    6: { title: "anillo arabe plata", description: "buena calidad " } ,
+    7: { title: "anillo diamante cuadrado plata", description: "buena calidad " } ,
+    8: { title: "arito de plata color bronce", description: "buena calidad " } ,
+    9: { title: "wd elements", description: "buena calidad ." } ,
+    10: { title: "ssd plus", description: "buena calidad " } ,
+    11: { title: "ssd solid state", description: "buena calidad " } ,
+    12: { title: "wd solid", description: "buena calidad ." } ,
+    13: { title: "monitor hd", description: "buena calidad " } ,
+    14: { title: "monitor doble pantalla hd", description: "buena calidad ." } ,
+    15: { title: "campera de abrigo (VIOLETA)", description: "buena calidad y comodidad." } ,
+    16: { title: "chaqueta de abrigo (NEGRA)", description: "buena calidad y comodidad." } ,
+    17: { title: "chaqueta de jean abierta", description: "buena calidad y comodidad." } ,
+    18: { title: "remera entre casa (BLANCA)", description: "buena calidad y comodidad." } ,
+    19: { title: "remera entre casa (ROJA)", description: "buena calidad y comodidad." } ,
+    20: { title: "remera entre casa (VIOLETA)", description: "buena calidad y comodidad." } ,
+  }
+
+
+
+
+
+  const searcher = (e) =>{  
+    setSearch(e.target.value)
+    console.log(e.target.value)
+  }
+
+ const results = !search 
+ ?products 
+ : products.filter((dato) =>  {
+ const remplace = remplaces[dato.id];
+  const newTitle = remplace?.title || dato.title || ""
+        return newTitle.toLowerCase().includes(search.toLowerCase())
+      })
 
   useEffect(() => {
     fetchingProducts()
   }, [])
-
 
 
   const handleDelete = async (id) => {
@@ -111,151 +154,29 @@ const Home = () => {
       <div>
 
         <section className=" presentacion">
-          <div className="item">
-            <h1>Ropa para Adultos</h1>
-            <p>Explorá nuestra colección de ropa diseñada para ofrecer comodidad, estilo y elegancia. Disponemos de variedad de talles, colores y estilos para todas las temporadas.</p>
-          </div>
-          <div className="item">
-            <h1>Joyas Exclusivas</h1>
-            <p>Descubrí nuestras joyas seleccionadas para realzar tu estilo. Piezas únicas, pensadas para cada ocasión: desde lo cotidiano hasta lo más sofisticado.</p>
-          </div>
+           <p>
+      Bienvenido a <strong>Tienda Lincoln</strong>, tu espacio ideal para explorar productos
+      de calidad en todas las categorías. Descubrí nuestras últimas novedades .
+    </p>
         </section>
+     <div className="search">
+      <input type="text" placeholder="buscar..." className= 'form-control' value={search} onChange={searcher}/>
+   
+     
+     </div>
 
 
-        {
-          showpopup && <section className="edit-product">
-            <h2>editando el producto..</h2>
-            <button onClick={() => setShowPopup(null)}>cerrar edicion</button>
-            <form onSubmit={handleUpdate}>
-
-              <label> nombre de producto</label>
-              <textarea className="name-product"
-                type="text"
-                placeholder="cambia el titulo"
-                value={titleEdit} onChange={(e) =>
-                  setTitleEdit(e.target.value)} >
-              </textarea>
-
-              <label>precio</label>
-              <input type="number"
-                placeholder="cambia el precio"
-                value={priceEdit} onChange={(e) =>
-                  setPriceEdit(e.target.value)} />
-
-              <label >descripcion</label>
-              <textarea
-                placeholder="cambia la descripcion"
-                value={descriptionEdit} onChange={(e) =>
-                  setDescriptionEdit(e.target.value)} >
-              </textarea>
-
-              <label>categoria</label>
-              <input type="text"
-                placeholder="ingrese la categoria"
-                value={categoryEdit} onChange={(e) =>
-                  setCategoryEdit(e.target.value)} />
-
-              <label>url de la imagen</label>
-              <input type="url"
-                placeholder="ingrese url de la imagen"
-                value={imageEdit} onChange={(e) =>
-                  setImageEdit(e.target.value)} />
-              <button>actualizar</button>
-
-
-            </form>
-          </section>
-        }
+       
+               
 
 
         <div className=" productos">
           {
-            products.map((product) => {
-              // Cambio título y descripción solo para todos los productos
-              let newTitle = product.title;
-              let newDescription = product.description;
-
-              if (product.id === 1) {
-                newTitle = "mochila para laptop (AZUL)";
-                newDescription = "ideal para llevarla a tu lugar de trabajo .";
-              }
-
-              if (product.id === 2) {
-                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
-                newDescription = "buena calidad y comodidad.";
-              }
-               if (product.id === 3) {
-                newTitle = "chaqueta de trabajo (BEIGE)"
-                newDescription = "buena calidad y comodidad.";
-              }
-               if (product.id === 4) {
-                newTitle = "remera manga larga inisex (AZUL)";
-                newDescription = "buena calidad y comodidad.";
-              }
-               if (product.id === 5) {
-                newTitle = "anillo dragon plata";
-                newDescription = "buena calidad";
-              }
-               if (product.id === 6) {
-                newTitle = "anillo arabe plata";
-                newDescription = "buena calidad ";
-              }
-               if (product.id === 7) {
-                newTitle = "anillo diamante cuadrado plata ";
-                newDescription = "buena calidad ";
-              }
-               if (product.id === 8) {
-                newTitle = "arito de plata color bronce";
-                newDescription = "buena calidad ";
-              }
-               if (product.id === 9) {
-                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
-                newDescription = "buena calidad y comodidad.";
-              }
-               if (product.id === 10) {
-                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
-                newDescription = "buena calidad y comodidad.";
-              }
-               if (product.id === 11) {
-                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
-                newDescription = "buena calidad y comodidad.";
-              }
-               if (product.id === 12) {
-                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
-                newDescription = "buena calidad y comodidad.";
-              }
-               if (product.id === 13) {
-                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
-                newDescription = "buena calidad y comodidad.";
-              }
-               if (product.id === 14) {
-                newTitle = "remera chomba con botones (BLANCA Y NEGRA)";
-                newDescription = "buena calidad y comodidad.";
-              }
-               if (product.id === 15) {
-                newTitle = "campera de abrigo (VIOLETA)";
-                newDescription = "buena calidad y comodidad.";
-              }
-               if (product.id === 16) {
-                newTitle = "chaqueta de abrigo (NEGRA)";
-                newDescription = "buena calidad y comodidad.";
-              }
-               if (product.id === 17) {
-                newTitle = "chaqueta de jean abierta";
-                newDescription = "buena calidad y comodidad.";
-              }
-               if (product.id === 18) {
-                newTitle = "remera entre casa (BLANCA)";
-                newDescription = "buena calidad y comodidad.";
-              }
-               if (product.id === 19) {
-                newTitle = "remera entre casa (ROJA)";
-                newDescription = "buena calidad y comodidad.";
-              }
-               if (product.id === 20) {
-                newTitle = "remera entre casa (VIOLETA)";
-                newDescription = "buena calidad y comodidad.";
-              }
+            results.map((product) => {
+             const remplace = remplaces[product.id]
+            const newTitle = remplace?.title || product.title
+            const newDescription =   remplace?.description || product.description
+            
 
               return (
                 <div key={product.id} className="prod-item">
@@ -285,6 +206,52 @@ const Home = () => {
          
 
         </div>
+
+         {
+          showpopup && <section className="edit-product">
+            <h2>editando el producto..</h2>
+            
+            <form onSubmit={handleUpdate}>
+
+              <label> nombre de producto</label>
+              <textarea className="name-product"
+                type="text"
+                placeholder="cambia el titulo"
+                value={titleEdit} onChange={(e) =>
+                  setTitleEdit(e.target.value)} >
+              </textarea>
+
+              <label>precio</label>
+              <input className="edit-price" type="number"
+                placeholder="cambia el precio"
+                value={priceEdit} onChange={(e) =>
+                  setPriceEdit(e.target.value)} />
+
+              <label >descripcion</label>
+              <textarea className="desc-edit"
+                placeholder="cambia la descripcion"
+                value={descriptionEdit} onChange={(e) =>
+                  setDescriptionEdit(e.target.value)} >
+              </textarea>
+
+              <label>categoria</label>
+              <input className="cat-edit" type="text"
+                placeholder="ingrese la categoria"
+                value={categoryEdit} onChange={(e) =>
+                  setCategoryEdit(e.target.value)} />
+
+              <label>url de la imagen</label>
+              <input className="url-edit" type="url"
+                placeholder="ingrese url de la imagen"
+                value={imageEdit} onChange={(e) =>
+                  setImageEdit(e.target.value)} />
+              <button>actualizar</button>
+              <button onClick={() => setShowPopup(null)}>cerrar edicion</button>
+
+
+            </form>
+          </section>
+        }
 
         <section className=" eleginos">
           <h2>ELEGINOS..</h2>

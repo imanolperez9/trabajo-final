@@ -63,7 +63,7 @@ const Dashboard = () => {
                 <form onSubmit={handleSubmit} >
                     <div>
                         <label> nombre del producto</label>
-                        <input type="text"
+                        <input className="name-product" type="text"
                          name="name" onChange={(e) =>
                           setName(e.target.value)} 
                           value={name} />
@@ -71,7 +71,7 @@ const Dashboard = () => {
 
                     <div>
                         <label>precio</label>
-                        <input type="number"
+                        <input className="edit-price" type="number"
                          name="price" onChange={(e) => 
                          setPrice(e.target.value)}
                           value={price} />
@@ -79,7 +79,7 @@ const Dashboard = () => {
 
                     <div>
                         <label>descripcion</label>
-                        <textarea name="description" 
+                        <textarea className="desc-edit" name="description" 
                         rows="4" 
                         onChange={(e) => 
                         setDescription(e.target.value)} 

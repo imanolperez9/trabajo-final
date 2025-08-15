@@ -1,38 +1,70 @@
+
+.principio  {
+    text-align: center;
+    
+}
+
 nav {
-    width: 100%;
+    
     display: flex;
     justify-content: flex-end;
-    background-color: #ffffff;
-    padding: 0px;
-    box-sizing: content-box;
+   
+}
+.btn-close  {
+   
+  background-color: #dc3545;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-style: normal;
+}
+.btn-close :hover   {
+
+ background-color:  rgb(228, 206, 206);;
+
 }
 
-ul {
+.all-btns   {
+
     list-style: none;
-    display: flex;
+      background-color:#3f4041;
+      justify-content:space-between ;
+      align-items:center ;
+      display: flex;
+     gap: 30px;
+     text-decoration: none;
+      border-radius: 8px;
+     padding: 8px 12px;
+     margin: 0;
+      overflow: hidden;
+
+
+    
+    cursor: pointer;
+}
+.all-btns :hover    {
+    background-color: #0a3b86;
+    transform: scale(1.05);
+}
+.links  {
     gap: 50px;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    }
-
-    ul :hover   {
-      background-color: #0a3b86;
-  transform: translateY(-2px);
+    display: flex;
 }
 
-.btn-inic {
 
-   padding:  10px 28px;
-  background-color: #09305a;
 
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
 
-}
+
+
+
+
+
+
+
 
 
 
@@ -41,58 +73,11 @@ ul {
 .let-btn-inic   {
     color:aliceblue;
 }
-
-
-
-
-
-.btn-dash {
-
-    background-color: #09305a;
-    padding: 8px 16px;
-    border-radius: 4px;
-    text-decoration: none;
-font-weight: 600;
-
-    cursor: pointer;
-}
-
-.let-btn-dash {
-    color:aliceblue;
-}
-.btn-close  {
-   
-   color: aliceblue;
-     padding: 12px;
-  background-color: rgb(92, 15, 15);
-
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-}
-.btn-log {
-     background-color: #09305a;
-    padding: 8px 16px;
-    border-radius: 4px;
-    text-decoration: none;
-font-weight: 600;
-
-    cursor: pointer;
+.let-btn-dash   {
+    color: aliceblue;
 }
 .let-btn-log    {
     color: aliceblue;
-}
-
-.btn-reg                                            {
-     background-color: #09305a;
-    padding: 8px 16px;
-    border-radius: 4px;
-    text-decoration: none;
-font-weight: 600;
-
-    cursor: pointer;
 }
 .let-btn-reg    {
     color: aliceblue;

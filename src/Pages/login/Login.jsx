@@ -23,17 +23,17 @@ const Login = () => {
         navigate("/")
         }
     }
-
+// johnd, m38rmF$
 
     return (
         <Layout >
-            <h1>inicia sesion</h1>
+            <h1 className="inicia-sesion">inicia sesion</h1>
             <section className="sec-login">
                 <form className="form-login" onSubmit={handleLogin}>
                     <div>
                         <label>nombre de usuario</label>
                         <input className="imputs" type="text"
-                            onChange={ (e) =>
+                            onChange={(e) =>
                             setUsername(e.target.value) } 
                             value={username} />
                     </div>
@@ -41,7 +41,7 @@ const Login = () => {
                     <div>
                         <label>contraseña</label>
                         <input className="imputs" type="password" 
-                         onChange={ (e) =>
+                         onChange={(e) =>
                          setPassword(e.target.value)}
                          value={password}/>
                     </div>

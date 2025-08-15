@@ -4,14 +4,17 @@ import { Header } from "./header/Header"
 
 const Layout = (props) =>   {
     return(
-        <>
-      <Header />
+         <div className=  {props.backgound} >
+            <Header />
+      
       <main>
         {props.children}
       </main>
       <Footer />
 
-        </>
+         </div>
     )
+    
+        
 }
 export    { Layout }

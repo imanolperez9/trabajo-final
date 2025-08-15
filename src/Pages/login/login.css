@@ -1,3 +1,9 @@
+
+.inicia-sesion  {
+  text-align: center;
+}
+
+
 .sec-login {
   display: flex;
   justify-content: center;
@@ -35,7 +41,7 @@ margin-bottom: 20px;
   transition: background-color 0.3s, transform 0.2s;
 }
 
-button:hover {
+.in-btn :hover {
   background-color: #0a3b86;
   transform: translateY(-2px);
 }

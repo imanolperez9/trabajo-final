@@ -1,3 +1,94 @@
+
+.presentacion {
+ font-size: 1.2rem;        
+  color: #333;             
+  line-height: 1.6;         
+  max-width: 700px;         
+  margin: 0 auto 2rem auto; 
+  text-align: center;       
+}
+
+
+
+.edit-product   {
+      display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.name-product   {
+      display: grid;
+ 
+  padding: 30px;
+  background-color: rgb(255, 255, 255);
+  border: 5px solid rgb(0, 26, 255);
+}
+
+.edit-price {
+    display: grid;
+ 
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  border: 5px solid rgb(0, 26, 255);
+}
+.desc-edit  {
+     display: grid;
+ 
+  padding: 80px;
+  padding-right:80px;
+  background-color: rgb(255, 255, 255);
+  border: 5px solid rgb(0, 26, 255);
+}
+
+.cat-edit   {
+       display: grid;
+  gap: 15px;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  border: 5px solid rgb(0, 26, 255);
+}
+
+.url-edit   {
+       display: grid;
+ 
+  padding: 10px;
+  padding-right: 50px;
+  background-color: rgb(255, 255, 255);
+  border: 5px solid rgb(0, 26, 255);
+}
+
+
+
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.form-control   {
+    padding: 10px;
+    padding-right: 35px;
+     border-radius: 10px 10px 10px 10px ;
+     
+}
+     .btn-search    {
+          background-color:#09305a;
+    border: none;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-style: normal;
+     }
+
+
+
+
+
+
+
 .productos {
     display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
@@ -66,6 +157,9 @@ text-align: center;
     font-style: normal;
 
 }
+.act-prod:hover {
+    background-color: #0a3b86
+}
 
 .del-prod {
     background-color: #dc3545;
@@ -81,9 +175,7 @@ text-align: center;
 
 
 
-.act-prod:hover {
-    background-color: #0a3b86
-}
+
 
 .del-prod:hover {
     background-color:  rgb(92, 15, 15);;

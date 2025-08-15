@@ -7,7 +7,7 @@ const UserProvider = (props) => {
     const [user, setUser] = useState(null)
 
     const login = async (username , password) => {
-        setUser(true)
+        
         
     const response = await fetch("https://fakestoreapi.com/auth/login"
         , {

@@ -4,31 +4,37 @@ import { Link } from "react-router-dom"
 
 const Header = () => {
 
-    const   { user , logout } = useAuth()
+    const { user, logout } = useAuth()
 
-    const handleLogout = () => {    
+    const handleLogout = () => {
         logout()
     }
 
     return (
-        <header style={{ backgroundColor: "lightblue" }}>
-            <h1>TIENDA LINCOLN</h1>
+        <header >
+            <h1 className="principio">TIENDA LINCOLN</h1>
             <nav>
-                <ul>
+                <ul className="all-btns" >
                     {
-                        user && <> 
+                        user && <  >
 
-                            <li className="btn-inic"><Link className="let-btn-inic" to="/">Inicio</Link></li>
-                            <li className="btn-dash"><Link className="let-btn-dash"  to="/Dashboard">Dashboard</Link></li>
-                            <button className="btn-close" onClick={handleLogout}>cerrar sesion</button>
+                            <div className="links">
+                                <li className="btn-inic"><Link className="let-btn-inic" to="/">Inicio</Link></li>
+                                <li className="btn-dash"><Link className="let-btn-dash" to="/Dashboard">Dashboard</Link></li>
+                            </div>
+                            <div>
+                                <button className="btn-close" onClick={handleLogout} >cerrar sesion</button>
+                            </div>
                         </>
 
                     }
-            
+
                     {
                         !user && <>
-                            <li className="btn-log"><Link className="let-btn-log" to="/Login">Login</Link></li>
-                            <li className="btn-reg" ><Link className="let-btn-reg" to="/Register">Registrate</Link></li>
+                            <div className="links" >
+                                <li className="btn-log"><Link className="let-btn-log" to="/Login">Login</Link></li>
+                                <li className="btn-reg" ><Link className="let-btn-reg" to="/Register">Registrate</Link></li>
+                            </div>
                         </>
                     }
                 </ul>
