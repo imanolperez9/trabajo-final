@@ -1,18 +1,17 @@
 
-.principio  {
+.principio {
     text-align: center;
-    
 }
 
 nav {
-    
     display: flex;
     justify-content: flex-end;
-   
+    align-items: center;
+    flex-wrap: wrap; 
 }
-.btn-close  {
-   
-  background-color: #dc3545;
+
+.btn-close {
+    background-color: #dc3545;
     border: none;
     color: white;
     padding: 8px 12px;
@@ -22,63 +21,85 @@ nav {
     transition: 0.3s ease;
     font-style: normal;
 }
-.btn-close :hover   {
 
- background-color:  rgb(228, 206, 206);;
-
+.btn-close:hover {
+    background-color:rgb(92, 15, 15)
 }
 
-.all-btns   {
-
+.all-btns {
     list-style: none;
-      background-color:#3f4041;
-      justify-content:space-between ;
-      align-items:center ;
-      display: flex;
-     gap: 30px;
-     text-decoration: none;
-      border-radius: 8px;
-     padding: 8px 12px;
-     margin: 0;
-      overflow: hidden;
-
-
-    
+    background-color: #3f4041;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    gap: 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin: 0;
+    overflow: hidden;
     cursor: pointer;
 }
-.all-btns :hover    {
-    background-color: #0a3b86;
+
+.all-btns:hover {
     transform: scale(1.05);
 }
-.links  {
+
+.links {
     gap: 50px;
     display: flex;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.let-btn-inic   {
-    color:aliceblue;
-}
-.let-btn-dash   {
+.let-btn-inic,
+.let-btn-dash,
+.let-btn-log,
+.let-btn-reg {
     color: aliceblue;
+    text-decoration: none;
 }
-.let-btn-log    {
-    color: aliceblue;
+
+/* RESPONSIVE */
+
+/* tablets */
+@media (max-width: 768px) {
+    nav {
+        justify-content: center;
+    }
+
+    .all-btns {
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 6px 10px;
+    }
+
+    .links {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
-.let-btn-reg    {
-    color: aliceblue;
+
+/* celular */
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .all-btns {
+        flex-direction: column;
+        width: 90%;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-close {
+        padding: 6px 10px;
+        margin: 3px;
+    }
 }

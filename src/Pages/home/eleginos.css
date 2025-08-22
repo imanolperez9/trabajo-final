@@ -4,40 +4,74 @@
   padding: 30px 20px;
   text-align: center;
   font-family: Arial, sans-serif;
-   font-size: 2rem;
+  font-size: 2rem;
   margin-bottom: 30px;
-  color: rgb(0, 26, 255);;
+  color: rgb(0, 26, 255);
 }
 
-
-
-.eleginos-list  {
+.eleginos-list {
   list-style: none;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 15px;
-  margin-bottom: 20px;
-  cursor: pointer; 
+  margin: 0 0 20px 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #555;
+  flex-wrap: wrap; 
 }
 
 .eleginos-list .icon {
   font-size: 2rem;
   padding: 10px;
-  border-radius: 50%;
-  background-color: #ffdede; 
-  color: #d6336c;
-  transition: transform 0.3s; 
+ 
+  
+ 
+  transition: transform 0.3s;
 }
 
 .eleginos-list .icon:hover {
-  transform: scale(1.2); 
+  transform: scale(1.2);
 }
 
+/* RESPONSIVE  */
 
+/* Tablets */
+@media (max-width: 992px) {
+  .eleginos {
+    font-size: 1.8rem;
+    padding: 25px 15px;
+  }
 
-.eleginos-list  {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #555;
+  .eleginos-list {
+    gap: 10px;
+    font-size: 0.9rem;
+  }
+
+  .eleginos-list .icon {
+    font-size: 1.8rem;
+    padding: 8px;
+  }
 }
+
+/* celular */
+@media (max-width: 576px) {
+  .eleginos {
+    font-size: 1.5rem;
+    padding: 20px 10px;
+  }
+
+  .eleginos-list {
+    flex-direction: column; 
+    align-items: center;
+    gap: 12px;
+  }
+
+  .eleginos-list .icon {
+    font-size: 1.5rem;
+    padding: 6px;
+  }
+}
+
 

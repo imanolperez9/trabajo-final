@@ -42,9 +42,9 @@ const Home = () => {
   // otra forma de cambiar el nombre a los productos
  const remplaces = {
     1: { title: "mochila para laptop (AZUL)", description: "ideal para llevarla a tu lugar de trabajo ." } ,
-    2: { title: "remera chomba con botones (BLANCA Y NEGRA)", description: "buena calidad y comodidad." } ,
+    2: { title: "remera chomba con botones ", description: "buena calidad y comodidad." } ,
     3: { title: "chaqueta de trabajo (BEIGE)", description: "buena calidad y comodidad." } ,
-    4: { title: "remera manga larga inisex (AZUL)", description: "buena calidad y comodidad." },
+    4: { title: "remera manga larga  (AZUL)", description: "buena calidad y comodidad." },
     5: { title: "anillo dragon plata", description: "buena calidad" } ,
     6: { title: "anillo arabe plata", description: "buena calidad " } ,
     7: { title: "anillo diamante cuadrado plata", description: "buena calidad " } ,

@@ -57,13 +57,13 @@ const Dashboard = () => {
 
     return (
         <Layout >
-            <h1>panel de administracion</h1>
+            <h1 className="pan">panel de administracion</h1>
             <section>
-                <h2>cargar nuevo producto</h2>
+                <h2 className="crg">cargar nuevo producto</h2>
                 <form onSubmit={handleSubmit} >
                     <div>
                         <label> nombre del producto</label>
-                        <input className="name-product" type="text"
+                        <input className="name-product-dash" type="text"
                          name="name" onChange={(e) =>
                           setName(e.target.value)} 
                           value={name} />
@@ -71,7 +71,7 @@ const Dashboard = () => {
 
                     <div>
                         <label>precio</label>
-                        <input className="edit-price" type="number"
+                        <input className="edit-price-dash" type="number"
                          name="price" onChange={(e) => 
                          setPrice(e.target.value)}
                           value={price} />
@@ -79,7 +79,7 @@ const Dashboard = () => {
 
                     <div>
                         <label>descripcion</label>
-                        <textarea className="desc-edit" name="description" 
+                        <textarea className="desc-edit-dash" name="description" 
                         rows="4" 
                         onChange={(e) => 
                         setDescription(e.target.value)} 
@@ -88,7 +88,7 @@ const Dashboard = () => {
                     {
                         error && <p>{error}</p>
                     }
-                    <button>guardar producto</button>
+                    <button className="guard">guardar producto</button>
                 </form>
                 {
                     product && <div>

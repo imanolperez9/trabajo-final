@@ -1,9 +1,11 @@
 import { useState } from "react"
 import "./register.css"
 import { Layout } from "../../Components/Layout"
+import { useAuth } from "../../Context/UserContext"
 
-
+//const    { setUser } = useAuth()//
 const Register = () => {
+
    
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
@@ -37,6 +39,8 @@ const Register = () => {
 
         setConfirm("usuario registrado")
 
+        setUser(true)
+
         setUsername("")
         setEmail("")
         setPassword("")
@@ -52,9 +56,11 @@ const Register = () => {
     return (
 
         <Layout >
-            <h1> registrate</h1>
+             <h1 className="bienvenido">bienvenido a Tienda Lincoln!!</h1>
+            <h2 className="reg"> registrate</h2>
+            
             <section className="sec-reg">
-                <h2>bienvenido a Tienda Lincoln!!</h2>
+               
                 <form className="form-reg" onSubmit={handleSubmit} >
                     <div>
                         <label>nombre de usuario</label>
