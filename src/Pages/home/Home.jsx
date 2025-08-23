@@ -38,6 +38,9 @@ const Home = () => {
     setProducts(data)
 
   }
+    useEffect(() => {
+    fetchingProducts()
+  }, [])
 
   // otra forma de cambiar el nombre a los productos
  const remplaces = {
@@ -80,9 +83,7 @@ const Home = () => {
         return newTitle.toLowerCase().includes(search.toLowerCase())
       })
 
-  useEffect(() => {
-    fetchingProducts()
-  }, [])
+
 
 
   const handleDelete = async (id) => {
@@ -122,29 +123,27 @@ const Home = () => {
 
 
     try {
-      const response = await fetch(`https://fakestoreapi.com/products/${editProduct.id}`, {
+      await fetch(`https://fakestoreapi.com/products/${editProduct.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(updateProduct)
       })
+      
+ setProducts(prevProducts =>
+      prevProducts.map(product =>
+        product.id === editProduct.id ? updateProduct : product
+      )
+    )
 
-      if (response.ok) {
-        const data = await response.json()
-        setProducts(prevProducts =>
-          prevProducts.map((product) =>
-            product.id === editProduct.id
-              ? data
-              : product
-          ))
-      }
+    setShowPopup(false)
+  } catch (error) {
+    console.log(error)
+  }
 
-      setShowPopup(false)
+     
 
-    } catch (error) {
-      console.log(error)
-    }
 
 
 
@@ -173,9 +172,10 @@ const Home = () => {
         <div className=" productos">
           {
             results.map((product) => {
-             const remplace = remplaces[product.id]
-            const newTitle = remplace?.title || product.title
-            const newDescription =   remplace?.description || product.description
+             
+             const remplace = remplaces [product.id]
+            const newTitle = product.title || remplace?.title ||""
+            const newDescription = product.description ||   remplace?.description || ""
             
 
               return (
@@ -245,8 +245,8 @@ const Home = () => {
                 placeholder="ingrese url de la imagen"
                 value={imageEdit} onChange={(e) =>
                   setImageEdit(e.target.value)} />
-              <button>actualizar</button>
-              <button onClick={() => setShowPopup(null)}>cerrar edicion</button>
+              <button className="actu-prod">actualizar</button>
+              <button className="cer-ed" onClick={() => setShowPopup(null)}>cerrar edicion</button>
 
 
             </form>

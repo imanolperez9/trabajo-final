@@ -1,0 +1,125 @@
+
+.pan {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+
+.crg {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #34495e;
+}
+
+
+.name-product-dash,
+.edit-price-dash,
+.desc-edit-dash {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+
+.name-product-dash:focus,
+.edit-price-dash:focus,
+.desc-edit-dash:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.4);
+    outline: none;
+}
+
+
+.guard {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #09305a;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.guard:hover {
+  background-color: #0a3b86;
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .pan {
+        font-size: 2.2rem;
+    }
+
+    .crg {
+        font-size: 1.6rem;
+    }
+
+    .name-product-dash,
+    .edit-price-dash,
+    .desc-edit-dash {
+        padding: 11px;
+        font-size: 0.95rem;
+    }
+
+    .guard {
+        padding: 11px;
+        font-size: 0.95rem;
+    }
+}
+/* tablets */
+@media (max-width: 768px) {
+    .pan {
+        font-size: 2rem;
+    }
+
+    .crg {
+        font-size: 1.5rem;
+    }
+
+    .name-product-dash,
+    .edit-price-dash,
+    .desc-edit-dash {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .guard {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+/* celular */
+@media (max-width: 480px) {
+    .pan {
+        font-size: 1.8rem;
+    }
+
+    .crg {
+        font-size: 1.3rem;
+    }
+
+    .name-product-dash,
+    .edit-price-dash,
+    .desc-edit-dash {
+        padding: 9px;
+        font-size: 0.85rem;
+    }
+
+    .guard {
+        padding: 9px;
+        font-size: 0.85rem;
+    }
+}

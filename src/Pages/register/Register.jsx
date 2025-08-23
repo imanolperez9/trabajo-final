@@ -2,11 +2,14 @@ import { useState } from "react"
 import "./register.css"
 import { Layout } from "../../Components/Layout"
 import { useAuth } from "../../Context/UserContext"
+import { useNavigate } from "react-router-dom"
 
-//const    { setUser } = useAuth()//
+
 const Register = () => {
 
+const    { setUser } = useAuth()
    
+const navigate = useNavigate()
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -44,6 +47,9 @@ const Register = () => {
         setUsername("")
         setEmail("")
         setPassword("")
+
+        navigate("/")
+
 
 
     }
