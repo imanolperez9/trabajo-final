@@ -15,6 +15,9 @@ const Header = () => {
             <h1 className="principio">TIENDA LINCOLN</h1>
             <nav>
                 <ul className="all-btns" >
+                    <div>
+                         <li className="btn-inic"><Link className="let-btn-inic" to="/sobreNosotros">Conocenos</Link></li>
+                    </div>
                     {
                         user && <  >
 

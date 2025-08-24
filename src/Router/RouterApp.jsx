@@ -5,6 +5,7 @@ import { Dashboard } from "../Pages/dashboard/Dashboard"
 import { Register } from "../Pages/register/Register"
 import { NotFound } from "../Pages/NotFound"
 import { PrivateRoute } from "../Components/Privateroute"
+import  { SobreNosotros } from "../Pages/aboutUs/sobreNosotros"
 
 
 const RouterApp = () => {
@@ -12,10 +13,11 @@ const RouterApp = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/SobreNosotros" element=   {<SobreNosotros />} />
 
                 <Route path="/Dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
                 <Route path="/Login" element={<Login />} />
-                <Route path="/Register" element={<Register />} />
+sobreNosotros                <Route path="/Register" element={<Register />} />
                 <Route path="*" element={<NotFound />} />
 
             </Routes>

@@ -161,7 +161,9 @@ const Home = () => {
      <div className="search">
       <input type="text" placeholder="buscar..." className= 'form-control' value={search} onChange={searcher}/>
    
-     
+     {results.length === 0 && search.trim() !== "" && (
+  <p >Producto no encontrado</p>
+)}
      </div>
 
 
