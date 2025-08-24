@@ -20,6 +20,8 @@ Navegación con React-Router-dom.
 Diseño responsivo con Bootstrap .
 
 
+
+
 🛠 Tecnologías:
 
 React (Vite)

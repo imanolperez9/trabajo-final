@@ -13,7 +13,7 @@ const RouterApp = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/SobreNosotros" element=   {<SobreNosotros />} />
+                <Route path="/sobreNosotros" element=   {<SobreNosotros />} />
 
                 <Route path="/Dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
                 <Route path="/Login" element={<Login />} />
